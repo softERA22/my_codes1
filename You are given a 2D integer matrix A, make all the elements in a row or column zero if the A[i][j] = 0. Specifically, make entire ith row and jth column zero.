@@ -1,0 +1,49 @@
+public class Solution {
+    public int[][] solve(int[][] A) {
+        int r = A.length;
+        int c = A[0].length;
+         for(int i =0; i<r; i++){
+             boolean flage = false;
+             for( int j = 0; j<c; j++){
+                 if(A[i][j]==0){
+                    flage = true;
+                    break;
+                 }
+             }
+             if(flage){
+                 for( int j = 0; j<c; j++){
+                     if(A[i][j]!=0){
+                       A[i][j] = -1;
+                     }
+                 }
+             }
+         }
+           for(int j =0; j<c; j++){
+             boolean flage = false;
+             for( int i = 0; i<r; i++){
+                 if(A[i][j]==0){
+                    flage = true;
+                    break;
+                 }
+             }
+             if(flage){
+                 for( int i = 0; i<c; i++){
+                     if(A[i][j]!=0){
+                       A[i][j] = -1;
+                     }
+                 }
+             }
+         }
+         for(int i =0; i<r; i++){
+             for(int j =0; j<c; j++){
+                 if(A[i][j] ==-1){
+                   A[i][j] =0;
+                   
+                 }
+                 
+             }
+             
+         }
+         return A;
+    }
+}
