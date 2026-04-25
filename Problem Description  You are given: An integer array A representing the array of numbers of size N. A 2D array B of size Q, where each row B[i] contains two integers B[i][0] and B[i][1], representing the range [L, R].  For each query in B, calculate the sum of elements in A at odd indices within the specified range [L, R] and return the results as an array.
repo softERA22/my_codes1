@@ -1,0 +1,31 @@
+public class Solution {
+    public int[] sumOfOddIndexedElements(int[] A, int[][] B) {
+        int n = A.length;
+        int[] ps = new int[n];
+        
+        
+        ps[0] = 0;
+        
+        for(int i = 1; i < n; i++) {
+            ps[i] = ps[i-1]; 
+            if(i % 2 != 0) {  
+                ps[i] += A[i];
+            }
+        }
+        
+        int[] result = new int[B.length];
+        for(int i = 0; i < B.length; i++) {
+            int L = B[i][0];
+            int R = B[i][1];
+            int ans;
+            
+            if(L == 0) {
+                ans = ps[R];
+            } else {
+                ans = ps[R] - ps[L-1];
+            }
+            result[i] = ans;
+        }
+        return result;
+    }
+}
