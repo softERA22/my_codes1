@@ -1,0 +1,38 @@
+public class Solution {
+    public int solve(int[] A) {
+        int n = A.length;
+        int max = A[0];
+        int min = A[0];
+        for(int i = 0; i<n; i++){
+            if(max<A[i]){
+                max =A[i];
+            }
+            if(min>A[i]){
+                min = A[i];
+            }
+        }
+        int lastminidx = -1;
+        int lastmaxidx = -1;
+        int ans = Integer.MAX_VALUE;
+
+        for(int i =0; i<n; i++){
+            if(A[i]==max){
+                lastmaxidx = i;
+                if(lastminidx != -1 ){
+                    int len = i- lastminidx  +1;
+                    ans = Math.min(ans,len);
+                }
+            }
+        
+        
+            if(A[i]==min){
+                lastminidx = i;
+                if(lastmaxidx !=-1){
+                    int len = i - lastmaxidx  +1;
+                    ans = Math.min(ans,len);
+                }
+            }
+        }
+        return ans;
+    }
+}
