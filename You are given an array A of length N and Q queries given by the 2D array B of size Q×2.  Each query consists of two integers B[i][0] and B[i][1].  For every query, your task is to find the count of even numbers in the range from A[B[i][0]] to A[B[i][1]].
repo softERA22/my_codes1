@@ -1,0 +1,34 @@
+public class Solution {
+    public int[] solve(int[] A, int[][] B) {
+        
+   
+        int n = A.length;
+        int[] prefix = new int[n];  // prefix[i] = even count from 0 to i
+        
+        // Build prefix array O(N)
+        prefix[0] = (A[0] % 2 == 0) ? 1 : 0;
+        for(int i = 1; i < n; i++) {
+            prefix[i] = prefix[i-1];
+            if(A[i] % 2 == 0) {
+                prefix[i]++;
+            }
+        }
+        
+        int[] result = new int[B.length];
+        
+        // Answer queries O(1) each
+        for(int i = 0; i < B.length; i++) {
+            int L = B[i][0];
+            int R = B[i][1];
+            
+            if(L == 0) {
+                result[i] = prefix[R];
+            } else {
+                result[i] = prefix[R] - prefix[L-1];
+            }
+        }
+        return result;
+    }
+}
+
+ 
