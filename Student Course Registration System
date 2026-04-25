@@ -1,0 +1,77 @@
+import java.util.*;
+
+
+class Course {
+    String id, name, dept, teacher;
+    int seats;
+
+    Course(String id, String name, String dept, String teacher, int seats) {
+        this.id = id;
+        this.name = name;
+        this.dept = dept;
+        this.teacher = teacher;
+        this.seats = seats;
+    }
+
+    void display() {
+        System.out.println(id + " | " + name + " | " + dept + " | " + teacher + " | Seats: " + seats);
+    }
+}
+
+
+class Student {
+    String id, name;
+    Student(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        
+        ArrayList<Course> courses = new ArrayList<>();
+        ArrayList<Student> students = new ArrayList<>();
+
+       
+        courses.add(new Course("C1", "Java", "CS", "Mr. Sharma", 2));
+        courses.add(new Course("C2", "DSA", "CS", "Mr. Verma", 3));
+        students.add(new Student("S1", "Ritik"));
+
+        while (true) {
+            System.out.println("\n1. View Courses  2. Register  3. Drop  4. Exit");
+            System.out.print("Choice: ");
+            int choice = sc.nextInt();
+            sc.nextLine(); // Buffer clear
+
+            if (choice == 1) {
+                for (Course c : courses) c.display();
+            } 
+            else if (choice == 2) {
+                System.out.print("Enter Course ID to Register: ");
+                String cid = sc.nextLine();
+                for (Course c : courses) {
+                    if (c.id.equals(cid) && c.seats > 0) {
+                        c.seats--;
+                        System.out.println("Registered!");
+                    }
+                }
+            } 
+            else if (choice == 3) {
+                System.out.print("Enter Course ID to Drop: ");
+                String cid = sc.nextLine();
+                for (Course c : courses) {
+                    if (c.id.equals(cid)) {
+                        c.seats++;
+                        System.out.println("Dropped!");
+                    }
+                }
+            } 
+            else if (choice == 4) {
+                break;
+            }
+        }
+    }
+}
