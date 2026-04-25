@@ -1,0 +1,51 @@
+public class Solution {
+
+    public int solve(int[] A) {
+
+        int n = A.length;
+
+        int totalEven = 0;
+        int totalOdd = 0;
+
+        // Step 1: Calculate total even and odd index sum
+        for (int i = 0; i < n; i++) {
+            if (i % 2 == 0) {
+                totalEven += A[i];
+            } else {
+                totalOdd += A[i];
+            }
+        }
+
+        int prefixEven = 0;
+        int prefixOdd = 0;
+        int count = 0;
+
+        // Step 2: Try removing each index
+        for (int i = 0; i < n; i++) {
+
+            // Remove current element from total
+            if (i % 2 == 0) {
+                totalEven -= A[i];
+            } else {
+                totalOdd -= A[i];
+            }
+
+            // After removal:
+            int newEven = prefixEven + totalOdd;
+            int newOdd = prefixOdd + totalEven;
+
+            if (newEven == newOdd) {
+                count++;
+            }
+
+            // Update prefix
+            if (i % 2 == 0) {
+                prefixEven += A[i];
+            } else {
+                prefixOdd += A[i];
+            }
+        }
+
+        return count;
+    }
+}
