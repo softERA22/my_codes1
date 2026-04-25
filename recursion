@@ -1,0 +1,21 @@
+public class Solution {
+
+    public void solve(int A) {
+        printNumbers(A);
+        System.out.println(); // Print a new line after printing all numbers
+    }
+
+    // Recursive function to print numbers from 1 to A
+    private void printNumbers(int n) {
+        // Base Case
+        if (n == 0) {
+            return;
+        }
+
+        // Recursive Call
+        printNumbers(n - 1);
+
+        // Print current number
+        System.out.print(n + " ");
+    }
+}
