@@ -1,0 +1,39 @@
+public class Solution {
+
+    public String longestPalindrome(String A) {
+        int n = A.length();
+        
+        int start = 0;
+        int maxLen = 1;
+
+        for (int i = 0; i < n; i++) {
+
+            // Odd length palindrome
+            int len1 = expand(A, i, i);
+
+            // Even length palindrome
+            int len2 = expand(A, i, i + 1);
+
+            int len = Math.max(len1, len2);
+
+            // Update only if strictly greater (for first occurrence rule)
+            if (len > maxLen) {
+                maxLen = len;
+                start = i - (len - 1) / 2;
+            }
+        }
+
+        return A.substring(start, start + maxLen);
+    }
+
+    private int expand(String A, int left, int right) {
+        int n = A.length();
+
+        while (left >= 0 && right < n && A.charAt(left) == A.charAt(right)) {
+            left--;
+            right++;
+        }
+
+        return right - left - 1; // length of palindrome
+    }
+}
