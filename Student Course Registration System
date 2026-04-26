@@ -1,6 +1,5 @@
 import java.util.*;
 
-
 class Course {
     String id, name, dept, teacher;
     int seats;
@@ -18,9 +17,9 @@ class Course {
     }
 }
 
-
 class Student {
     String id, name;
+
     Student(String id, String name) {
         this.id = id;
         this.name = name;
@@ -30,45 +29,57 @@ class Student {
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        
-        
-        ArrayList<Course> courses = new ArrayList<>();
-        ArrayList<Student> students = new ArrayList<>();
 
-       
-        courses.add(new Course("C1", "Java", "CS", "Mr. Sharma", 2));
-        courses.add(new Course("C2", "DSA", "CS", "Mr. Verma", 3));
-        students.add(new Student("S1", "Ritik"));
+        
+        HashMap<String, Course> courses = new HashMap<>();
+        HashMap<String, Student> students = new HashMap<>();
+
+        
+        courses.put("C1", new Course("C1", "Java", "CS", "Mr. Sharma", 2));
+        courses.put("C2", new Course("C2", "DSA", "CS", "Mr. Verma", 3));
+
+        students.put("S1", new Student("S1", "Ritik"));
 
         while (true) {
             System.out.println("\n1. View Courses  2. Register  3. Drop  4. Exit");
             System.out.print("Choice: ");
             int choice = sc.nextInt();
-            sc.nextLine(); // Buffer clear
+            sc.nextLine();
 
             if (choice == 1) {
-                for (Course c : courses) c.display();
-            } 
+                for (Course c : courses.values()) {
+                    c.display();
+                }
+            }
+
             else if (choice == 2) {
                 System.out.print("Enter Course ID to Register: ");
                 String cid = sc.nextLine();
-                for (Course c : courses) {
-                    if (c.id.equals(cid) && c.seats > 0) {
-                        c.seats--;
-                        System.out.println("Registered!");
-                    }
+
+                Course c = courses.get(cid);
+
+                if (c != null && c.seats > 0) {
+                    c.seats--;
+                    System.out.println("Registered!");
+                } else {
+                    System.out.println("Course not found or no seats available.");
                 }
-            } 
+            }
+
             else if (choice == 3) {
                 System.out.print("Enter Course ID to Drop: ");
                 String cid = sc.nextLine();
-                for (Course c : courses) {
-                    if (c.id.equals(cid)) {
-                        c.seats++;
-                        System.out.println("Dropped!");
-                    }
+
+                Course c = courses.get(cid);
+
+                if (c != null) {
+                    c.seats++;
+                    System.out.println("Dropped!");
+                } else {
+                    System.out.println("Course not found.");
                 }
-            } 
+            }
+
             else if (choice == 4) {
                 break;
             }
