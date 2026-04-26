@@ -1,0 +1,24 @@
+import java.util.*;
+public class Main {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt();    
+     
+       for(int i=1;i<=n; i++){
+            int copy = i; 
+             int sum = 0; 
+             int temp = 1;
+              while(temp>0){
+              int dig = temp%10;
+                 sum = sum+(dig*dig*dig);
+                 temp= temp/10;
+              }
+          if(sum==copy){
+           System.out.println("this is");
+          }
+          else{
+          System.out.println("this is not");
+          }
+      }
+   }
+ }

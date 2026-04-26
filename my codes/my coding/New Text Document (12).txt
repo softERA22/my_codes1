@@ -1,0 +1,21 @@
+int x = 15;
+
+if(x > 10){
+
+x++;
+
+if(x == 16){
+
+System.out.println(“UPDATED”);
+
+}else if(x == 15){
+
+System.out.println(“NO CHANGE”);
+
+}
+
+}else{
+
+System.out.println(“YES”);
+
+}

@@ -1,0 +1,27 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.*;
+public class Main {
+  public static void main(String[] args) {
+    Scanner scn = new Scanner(System.in);
+    // double age = scn.nextDouble();
+    // if(age>=98.0 && age<=65){
+    //   System.out.println("normal temp :) " );
+    // }
+
+    // else{
+    //   System.out.println("not normal. ");
+    // }
+       int age = scn.nextInt();
+       if(age>=65 ){
+      System.out.println("retaired " + (age-65));
+    }
+
+    else{
+      System.out.println("not retaired  " + (65 - age));
+    }
+    
+
+      // System.out.println("Hello, World!");
+  }
+}

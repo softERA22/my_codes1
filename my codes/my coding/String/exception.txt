@@ -1,0 +1,9 @@
+public class Main {
+  public static void main(String[] args) {
+    char ch = 'b';
+    ch =(char)  (ch - 1);
+      // char ch2= (char)98;
+      System.out.println( ch);
+
+  }
+}

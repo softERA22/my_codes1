@@ -1,0 +1,51 @@
+import java.util.*;
+
+public class Main {
+
+    // This method processes the array and counts elements less than MAX_VALUE
+    static int printarr(int[] arr) {
+        int n = arr.length;
+        int max = Integer.MAX_VALUE;
+
+        // If any element is greater than max (which is not possible), set it to max
+        for (int i = 0; i < n; i++) {
+            if (arr[i] > max) {
+                arr[i] = max;
+            }
+        }
+
+        int count = 0;
+        // Count elements less than max
+        for (int i = 0; i < n; i++) {
+            if (arr[i] < max) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    // This method calculates the sum of the elements in the array
+    static int sumarr(int[] arr) {
+        int sum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            sum += arr[i];
+        }
+        return sum;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int q = sc.nextInt();
+        int arr[] = new int[q];
+
+        for (int i = 0; i < q; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        int count = printarr(arr);
+        int sum = sumarr(arr);
+
+        System.out.println("Count of elements less than Integer.MAX_VALUE: " + count);
+        System.out.println("Sum of array elements: " + sum);
+    }
+}

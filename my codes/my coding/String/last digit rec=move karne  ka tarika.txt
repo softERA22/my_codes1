@@ -1,0 +1,11 @@
+public class Main {
+  static String copy(String A){
+    int laststringremove = A.length()-1;
+    String ans = A.substring(0,laststringremove);
+    return ans;
+  }
+  public static void main(String[] args) {
+    
+    System.out.println(copy ("Scaler"));
+  }
+}

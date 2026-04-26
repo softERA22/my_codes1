@@ -1,0 +1,9 @@
+public class Main {
+  public static void main(String[] args) {
+    int var = 'A';
+  //// implicit typecasting int type karne se 'A' ki value aa gai
+      System.out.println(var);
+      System.out.println((char)var); 
+
+  }
+}

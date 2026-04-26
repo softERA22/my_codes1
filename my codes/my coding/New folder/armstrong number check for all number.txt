@@ -1,0 +1,24 @@
+import java.util.*;
+public class Main {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt();    
+     
+       for(int i=1;i<=n; i++){
+            int army = n; 
+             int sum = 0; 
+            int dig = 0;
+              while(n>0){
+                 dig = n%10;
+                 sum = sum+(dig*dig*dig);
+                 n= n/10;
+              }
+          if(sum==army){
+           System.out.print("this is");
+          }
+          else{
+          System.out.print("this is not");
+          }
+      }
+   }
+ }

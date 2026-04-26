@@ -1,0 +1,24 @@
+
+import java.util.*;
+public class Main {
+    
+    static int max(int  a, int b ){
+      int max =0;
+
+      if (a>b) max = a;
+      else max = b;
+      
+      return max;
+    }
+    
+  public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int q = sc.nextInt();
+        int w = sc.nextInt();
+        // int e = sc.nextInt();
+        // int ans = Factorial(6);
+        // System.out.println(sum);
+
+          System.out.println(max( q,w));
+      }
+} 

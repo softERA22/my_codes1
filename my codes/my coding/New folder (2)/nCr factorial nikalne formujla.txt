@@ -1,0 +1,30 @@
+
+
+
+
+
+
+import java.util.*;
+public class Main {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);  
+    int n = sc.nextInt();
+    int r = sc.nextInt();
+    int sum = 1;
+          for(int i = 1; i<=n; i++ ){
+            sum = sum*i;
+          }
+          System.out.println(sum + " uu");
+              int sum2 = 1;
+              for(int j = 1; j<=r; j++ ){
+              sum2 = sum2*j;
+              }
+              System.out.println(sum2 + " uu");
+                  int sum3 = 1;
+                  for(int k = 1; k<=(n-r); k++ ){
+                  sum3 = sum3*k;
+                  }
+                  System.out.println(sum3 + " uu");
+          System.out.println(sum/sum2*(sum3)); 
+        }
+}
